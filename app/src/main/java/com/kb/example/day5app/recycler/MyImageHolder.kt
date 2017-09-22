@@ -9,11 +9,14 @@ import kotlinx.android.synthetic.main.list_item.view.*
 /**
  * Created by Karol on 2017-09-22.
  */
-class MyImageHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MyImageHolder(itemView: View, private val callback: (View, MyImage) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
     fun bindView(image: MyImage) {
-        Picasso.with(itemView.context).load(image.imageUrl).fit().centerCrop().into(itemView.image)
+        Picasso.with(itemView.context).load(image.imageUrl).into(itemView.image)
         itemView.imageTitle.text = image.description
+        itemView.setOnClickListener {
+            callback(itemView, image)
+        }
     }
 
 }
