@@ -13,7 +13,7 @@ class ImageProvider {
     companion object {
         fun provideImages(): List<MyImage> {
             var images: MutableList<MyImage> = mutableListOf()
-            (40..50).mapTo(images) { MyImage(BASE_URL + it, "Demo title") }
+            (40..55).mapTo(images) { MyImage(BASE_URL + it, "Demo title") }
             return images
         }
     }
